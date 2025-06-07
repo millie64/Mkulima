@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Vet Dashboard{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="mb-4">🩺 Welcome, {{ user.username }}!</h1>
+    <p class="lead">Here’s what you can do as a vet:</p>
+    <div class="row justify-content-center">
+        <div class="col-md-6 mb-3">
+            <a href="{% url 'add_report' %}" class="btn btn-outline-primary w-100">📄 Write Report</a>
+        </div>
+        <div class="col-md-6 mb-3">
+            <a href="{% url 'add_vet' %}" class="btn btn-outline-warning w-100">🧑‍⚕️ Update Profile</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

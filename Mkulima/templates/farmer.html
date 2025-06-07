@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Farmer Dashboard{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="mb-4">👩‍🌾 Welcome, {{ user.username }}!</h1>
+    <p class="lead">Here’s what you can do as a farmer:</p>
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-3">
+            <a href="{% url 'add_order' %}" class="btn btn-outline-primary w-100">🛒 Place Product Order</a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="{% url 'add_consultation' %}" class="btn btn-outline-secondary w-100">💬 Consult a Vet</a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="{% url 'add_ai' %}" class="btn btn-outline-success w-100">🤖 AI Diagnosis</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

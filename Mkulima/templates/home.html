@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Home | Mkulima{% endblock %}
+
+{% block content %}
+    <div class="text-center">
+        <h1 class="display-4 text-primary">👩🏾‍🌾 Welcome to Mkulima</h1>
+        <p class="lead text-muted">Manage your farm efficiently</p>
+        <div class="list-group mt-4">
+            <a href="/add-farmer/" class="list-group-item list-group-item-action">Add Farmer</a>
+            <a href="/add-product/" class="list-group-item list-group-item-action">Add Product</a>
+            <a href="/add-order/" class="list-group-item list-group-item-action">Add Order</a>
+            <a href="/add-report/" class="list-group-item list-group-item-action">Add Report</a>
+            <a href="/add-vet/" class="list-group-item list-group-item-action">Add Vet</a>
+            <a href="/add-consultation/" class="list-group-item list-group-item-action">Add Consultation</a>
+            <a href="/add-ai/" class="list-group-item list-group-item-action">Add AI Diagnosis</a>
+        </div>
+    </div>
+{% endblock %}

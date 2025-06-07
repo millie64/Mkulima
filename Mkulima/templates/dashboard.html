@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">
+        Welcome, {{ request.user.username }}
+        {% if role == "admin" %}
+            <span class="badge bg-dark">Admin</span>
+        {% elif role == "farmer" %}
+            <span class="badge bg-success">Farmer</span>
+        {% elif role == "vet" %}
+            <span class="badge bg-info text-dark">Vet</span>
+        {% elif role == "supplier" %}
+            <span class="badge bg-secondary">Supplier</span>
+        {% endif %}
+    </h2>
+    <p class="text-center text-muted mb-4">Manage your responsibilities efficiently</p>
+
+    <div class="row justify-content-center">
+
+        {% if role == "farmer" %}
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm text-center">
+                    <i class="bi bi-cart-plus fs-2 text-success mt-3"></i>
+                    <h5 class="card-title mt-2">Add Order</h5>
+                    <a href="{% url 'add_order' %}" class="btn btn-outline-success mb-3 mt-2">Go</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm text-center">
+                    <i class="bi bi-person-badge fs-2 text-info mt-3"></i>
+                    <h5 class="card-title mt-2">Consult Vet</h5>
+                    <a href="{% url 'add_consultation' %}" class="btn btn-outline-info mb-3 mt-2">Go</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm text-center">
+                    <i class="bi bi-cpu fs-2 text-warning mt-3"></i>
+                    <h5 class="card-title mt-2">AI Diagnosis</h5>
+                    <a href="{% url 'add_ai' %}" class="btn btn-outline-warning mb-3 mt-2">Go</a>
+                </div>
+            </div>
+
+        {% elif role == "vet" %}
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm text-center">
+                    <i class="bi bi-file-earmark-text fs-2 text-primary mt-3"></i>
+                    <h5 class="card-title mt-2">Add Report</h5>
+                    <a href="{% url 'add_report' %}" class="btn btn-outline-primary mb-3 mt-2">Go</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm text-center">
+                    <i class="bi bi-chat-left-text fs-2 text-danger mt-3"></i>
+                    <h5 class="card-title mt-2">Handle Consultation</h5>
+                    <a href="{% url 'add_consultation' %}" class="btn btn-outline-danger mb-3 mt-2">Go</a>
+                </div>
+            </div>
+
+        {% elif role == "supplier" %}
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm text-center">
+                    <i class="bi bi-box-seam fs-2 text-secondary mt-3"></i>
+                    <h5 class="card-title mt-2">Add Product</h5>
+                    <a href="{% url 'add_product' %}" class="btn btn-outline-secondary mb-3 mt-2">Go</a>
+                </div>
+            </div>
+
+        {% elif role == "admin" %}
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm text-center">
+                    <i class="bi bi-person-plus fs-2 text-success mt-3"></i>
+                    <h5 class="card-title mt-2">Add Farmer</h5>
+                    <a href="{% url 'add_farmer' %}" class="btn btn-outline-success mb-3 mt-2">Go</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm text-center">
+                    <i class="bi bi-person-vcard fs-2 text-info mt-3"></i>
+                    <h5 class="card-title mt-2">Add Vet</h5>
+                    <a href="{% url 'add_vet' %}" class="btn btn-outline-info mb-3 mt-2">Go</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm text-center">
+                    <i class="bi bi-truck fs-2 text-secondary mt-3"></i>
+                    <h5 class="card-title mt-2">Add Supplier</h5>
+                    <a href="{% url 'add_supplier' %}" class="btn btn-outline-secondary mb-3 mt-2">Go</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
